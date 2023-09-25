@@ -31,12 +31,20 @@ def convert_letter_to_num(letter):
 
 
 while True:
-    letters = [x for x in input("Enter the word: ").upper()].reverse()
+    phrase = input("Enter a phrase: ").upper().split()
 
-    num = 0
-    i = 0
-    for l in letters:
-        num = num + (convert_letter_to_num(l) * (26 ** i))
-        i += 1
+    finalNums = ""
 
-    print(num)
+    for word in phrase:
+        letters = [x for x in word]
+        letters.reverse()
+
+        num = 0
+        i = 0
+        for l in letters:
+            num = num + (convert_letter_to_num(l) * (26 ** i))
+            i += 1
+
+        finalNums = finalNums + str(num) + " "
+
+    print(finalNums)
